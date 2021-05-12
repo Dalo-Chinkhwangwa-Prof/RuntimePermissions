@@ -22,7 +22,7 @@ import androidx.core.app.ActivityCompat.shouldShowRequestPermissionRationale
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), SherlockMapFragment.MapFragmentInterface {
 
     private lateinit var locationManager: LocationManager
     private lateinit var mapFragment: SherlockMapFragment
@@ -67,22 +67,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onPause() {
-        super.onPause()
-        Log.d("TAG_X", "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("TAG_X", "onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("TAG_X", "onDestroy")
-
-    }
-
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -116,6 +100,10 @@ class MainActivity : AppCompatActivity() {
 
 
         }
+    }
+
+    override fun mapReady() {
+//        registerLocationListener()
     }
 
 
